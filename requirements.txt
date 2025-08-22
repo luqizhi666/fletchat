@@ -1,4 +1,4 @@
 flet>=0.14.0
-pydantic
+pydantic-core
 supabase
 openai
