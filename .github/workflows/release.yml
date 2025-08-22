@@ -30,11 +30,7 @@ jobs:
       - name: Create tag if not exists
         if: github.event_name == 'workflow_dispatch'
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
           TAG_NAME="v$(date +'%Y%m%d%H%M%S')"
-          git tag $TAG_NAME
-          git push origin $TAG_NAME
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
 
       - name: Build APK
