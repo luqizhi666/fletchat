@@ -1,2 +1,4 @@
 flet>=0.14.0
 supabase
+pydantic
+openai
