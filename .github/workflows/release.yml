@@ -26,6 +26,17 @@ jobs:
           pip install supabase
           pip install -r requirements.txt
 
+      # 自动创建 tag（仅 workflow_dispatch 手动触发时）
+      - name: Create tag if not exists
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          TAG_NAME="v$(date +'%Y%m%d%H%M%S')"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+
       - name: Build APK
         run: flet build apk --verbose
 
@@ -35,5 +46,6 @@ jobs:
           files: |
             build/apk/app-release.apk
             build/apk/app-release.apk.sha1
+          tag_name: ${{ github.ref_name || env.TAG_NAME }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
