@@ -1,2 +1,4 @@
 flet>=0.14.0
+pydantic==2.7.4
+pydantic-core==2.29.0  # 或留空，让 pip 自动选择
 supabase
