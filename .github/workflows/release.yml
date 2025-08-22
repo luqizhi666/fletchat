@@ -22,9 +22,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          rm requirements.txt
           pip install flet
           pip install supabase
-          pip install -r requirements.txt
+          
 
       # 自动创建 tag（仅 workflow_dispatch 手动触发时）
       - name: Create tag if not exists
