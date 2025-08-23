@@ -27,7 +27,7 @@ jobs:
           # pip install requirements.txt
           pip install "pydantic-core<=2.29" supabase
           pip install flet
-          pip install supabase
+          # pip install supabase
           
         
 
