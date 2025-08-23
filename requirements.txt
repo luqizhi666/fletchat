@@ -1,2 +1,5 @@
 flet
+pydantic==2.10.6
+pydantic-core==2.27.2
+
 supabase
