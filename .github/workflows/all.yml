@@ -34,6 +34,7 @@ env:
   # Disables progress bars when using UV
   UV_NO_PROGRESS: 1
 
+  # SECRET_KEY: ${{ secrets.SECRET_KEY }}
 jobs:
   build-linux:
     runs-on: ubuntu-latest
