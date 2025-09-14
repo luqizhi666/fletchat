@@ -9,7 +9,7 @@ description = "my app"
 authors = [{name = "lqz", email = "luqizhi@foxmail.com"}]
 
 [tool.flet.android]
-min_sdk_version = 21
+min_sdk_version = 24
 target_sdk_version = 34
 
 [tool.flet.android.deep_linking]
@@ -18,4 +18,4 @@ host = "022408.xyz"
 
 [tool.flet.flutter.pubspec.dependency_overrides]
 webview_flutter_android = "4.10.1"
-#详见https://github.com/flet-dev/flet/issues/5630，https://github.com/flet-dev/flet-build-template/pull/50#issuecomment-3276959573
+# 详见https://github.com/flet-dev/flet/issues/5630，https://github.com/flet-dev/flet-build-template/pull/50#issuecomment-3276959573
