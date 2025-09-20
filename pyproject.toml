@@ -1,20 +1,21 @@
-# [tool.flet.android]
-# min_sdk_version = 24
-
 [tool.flet.flutter.pubspec.dependency_overrides]
 webview_flutter_android = "4.10.1"
+
 # 详见https://github.com/flet-dev/flet/issues/5630，https://github.com/flet-dev/flet-build-template/pull/50#issuecomment-3276959573
+
+[tool.flet.android]
+min_sdk_version = 24
 
 # [build-system]
 # requires = ["setuptools>=45", "wheel"]
 # build-backend = "setuptools.build_meta"
 
-# [project]
-# name = "LWchat"
-# version = "0.1.1"
-# description = "chat freely"
-# authors = [{name = "lqz", email = "luqizhi@foxmail.com"}]
+[project]
+name = "LWchat"
+version = "0.1.1"
+description = "chat freely"
+authors = [{name = "lqz", email = "luqizhi@foxmail.com"}]
 
-# [tool.flet.android.deep_linking]
-# scheme = "https"
-# host = "022408.xyz"
+[tool.flet.android.deep_linking]
+scheme = "https"
+host = "022408.xyz"
