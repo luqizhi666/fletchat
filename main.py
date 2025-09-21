@@ -15,8 +15,12 @@ def main(page):
         if page.client_storage.contains_key("supabase_jwt"):
             encrypted_jwt = page.client_storage.get("supabase_jwt")
             jwt_token = decrypt(encrypted_jwt, SECRET_KEY)
-            userinfo = supabase.auth.get_user(jwt_token)
-            print(userinfo)
+            try:
+                userinfo = supabase.auth.get_user(jwt_token)
+                print(userinfo)
+            except Exception as ex:
+                print(f"自动登录失败: {ex}")
+                page.client_storage.remove("supabase_jwt")
 
 
     else:
