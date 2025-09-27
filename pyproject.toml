@@ -1,10 +1,116 @@
+# =================== Flet Splash 启动页统一配置 ===================
+[tool.flet.splash]
+# 启动页图片，建议 512x512 及以上，PNG 格式，内容居中
+image = "assets/splash.png"
+# 启动页背景色（可选）
+color = "#FFFFFF"
+# 深色模式下背景色（可选）
+dark_color = "#222222"
+# 各平台是否启用 splash
+web = true
+ios = true
+android = true
 [tool.flet.flutter.pubspec.dependency_overrides]
 webview_flutter_android = "4.10.1"
 
 # 详见https://github.com/flet-dev/flet/issues/5630，https://github.com/flet-dev/flet-build-template/pull/50#issuecomment-3276959573
 
+
+
+# =================== Flet 构建通用配置 ===================
+[tool.flet]
+# 主入口文件（默认 main.py）
+main = "main.py"
+# 应用窗口标题
+title = "LWchat 聊天应用"
+# 应用窗口初始宽度
+window_width = 400
+# 应用窗口初始高度
+window_height = 700
+# 是否允许窗口缩放
+window_resizable = true
+# 启动时最大化
+window_maximized = false
+# 启动时全屏
+window_full_screen = false
+# 应用图标（建议放在 assets 目录下，支持 png/ico/icns）
+icon = "assets/icon.png"
+
+[tool.flet.build]
+# 构建输出目录
+output_dir = "build"
+# 版本号（可覆盖 project.version）
+version = "0.1.1"
+# 构建号
+build_number = 1
+
+# =================== Android 配置 ===================
 [tool.flet.android]
 min_sdk_version = 24
+# Android 包名（建议用反向域名）
+package_name = "com.lqz.lwchat"
+# 应用名称
+label = "LWchat"
+# 启动图标
+icon = "assets/icon.png"
+# 是否支持深色模式
+supports_dark_theme = true
+
+
+# =================== Flet 其它可选配置补充 ===================
+# [tool.flet.web]
+# # PWA 支持
+# pwa = true
+# # 自定义 Service Worker
+# service_worker = "assets/sw.js"
+
+# [tool.flet.packaging]
+# # 指定额外需要打包的文件或目录
+# include = ["assets/*", "README.md"]
+# # 排除不需要打包的文件
+# exclude = ["tests/*", "docs/*"]
+
+# [tool.flet.env]
+# # 构建时注入的环境变量
+# SECRET_KEY = "your_secret_key"
+
+# [tool.flet.logging]
+# # 日志级别（DEBUG/INFO/WARNING/ERROR）
+# level = "INFO"
+
+# [tool.flet.dependencies]
+# # 额外的 pip 依赖
+# packages = ["requests", "pillow"]
+
+# =================== Windows 配置 ===================
+[tool.flet.windows]
+# 应用图标（ico 格式）
+icon = "assets/icon.ico"
+# 是否需要管理员权限
+require_admin = false
+
+# =================== macOS 配置 ===================
+[tool.flet.macos]
+# 应用图标（icns 格式）
+icon = "assets/icon.icns"
+
+# =================== Linux 配置 ===================
+[tool.flet.linux]
+# 应用图标（png 格式）
+icon = "assets/icon.png"
+
+# =================== iOS 配置 ===================
+[tool.flet.ios]
+# 应用名称
+label = "LWchat"
+# 应用图标
+icon = "assets/icon.png"
+
+# =================== 其它可选配置 ===================
+# [tool.flet.flutter]
+# 可自定义 Flutter 相关参数
+# [tool.flet.flutter.pubspec.dependency_overrides]
+# ...
 
 # [build-system]
 # requires = ["setuptools>=45", "wheel"]
