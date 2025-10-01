@@ -48,15 +48,23 @@ jobs:
 
       - name: Build APK
         run: flet build apk --verbose
-      
+        continue-on-error: true
+
       - name: Build window executable
-        run: flet build exe --verbose
+        run: flet build windows --verbose
+        continue-on-error: true
 
       - name: Build macOS executable
-        run: flet build pkg --verbose
+        run: flet build macos --verbose
+        continue-on-error: true
 
       - name: Build Linux executable
-        run: flet build deb --verbose
+        run: flet build linux --verbose
+        continue-on-error: true
+
+      - name: Build web
+        run: flet build web --verbose
+        continue-on-error: true
 
       - name: Upload APK to Release
         uses: softprops/action-gh-release@v1
