@@ -1,3 +1,9 @@
+[tool.flet.flutter.pubspec.dependency_overrides]
+webview_flutter_android = "4.10.1"
+
+# 详见https://github.com/flet-dev/flet/issues/5630，https://github.com/flet-dev/flet-build-template/pull/50#issuecomment-3276959573
+
+
 # =================== Flet Splash 启动页统一配置 ===================
 [tool.flet.splash]
 # 启动页图片，建议 512x512 及以上，PNG 格式，内容居中
@@ -10,10 +16,6 @@ dark_color = "#222222"
 web = true
 ios = true
 android = true
-[tool.flet.flutter.pubspec.dependency_overrides]
-webview_flutter_android = "4.10.1"
-
-# 详见https://github.com/flet-dev/flet/issues/5630，https://github.com/flet-dev/flet-build-template/pull/50#issuecomment-3276959573
 
 
 
