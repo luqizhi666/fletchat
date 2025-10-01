@@ -66,10 +66,10 @@ jobs:
         run: flet build web -o output/web --verbose
         continue-on-error: true
 
-      - name: Copy web build to repo root
-        run: |
-          cp -r output/web/* .
-        continue-on-error: true
+      # - name: Copy web build to repo root
+      #   run: |
+      #     cp -r output/web/* .
+      #   continue-on-error: true
 
       - name: Commit and push web build to repo
         run: |
