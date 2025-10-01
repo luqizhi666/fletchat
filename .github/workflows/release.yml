@@ -47,30 +47,40 @@ jobs:
           echo "RELEASE_TITLE=Release $(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
       - name: Build APK
-        run: flet build apk -o output --verbose
+        run: flet build apk -o output/apk --verbose
         continue-on-error: true
 
       - name: Build window executable
-        run: flet build windows -o output --verbose
+        run: flet build windows -o output/windows --verbose
         continue-on-error: true
 
       - name: Build macOS executable
-        run: flet build macos -o output --verbose
+        run: flet build macos -o output/macos --verbose
         continue-on-error: true
 
       - name: Build Linux executable
-        run: flet build linux -o output --verbose
+        run: flet build linux -o output/linux --verbose
         continue-on-error: true
 
       - name: Build web
-        run: flet build web -o output --verbose
+        run: flet build web -o output/web --verbose
+        continue-on-error: true
+
+      - name: Zip web build
+        run: |
+          cd output/web
+          zip -r ../web.zip .
         continue-on-error: true
 
       - name: Upload APK to Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            output/*
+            output/apk/*
+            output/windows/*
+            output/macos/*
+            output/linux/*
+            output/web.zip
           tag_name: ${{ github.ref_name || env.TAG_NAME }}
           name: ${{ env.RELEASE_TITLE }}
         env:
