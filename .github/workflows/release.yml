@@ -62,11 +62,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            build/apk/app-release.apk
-            build/apk/app-release.apk.sha1
-            build/exe/app.exe
-            build/pkg/app.pkg
-            build/deb/app.deb
+            build/**/*
           tag_name: ${{ github.ref_name || env.TAG_NAME }}
           name: ${{ env.RELEASE_TITLE }}
         env:
