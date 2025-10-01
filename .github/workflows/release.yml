@@ -5,8 +5,8 @@ permissions:
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -41,8 +41,22 @@ jobs:
           TAG_NAME="v$(date +'%Y%m%d%H%M%S')"
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
 
+      # 自动生成带时间的 Release 标题
+      - name: Set release title
+        run: |
+          echo "RELEASE_TITLE=Release $(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+
       - name: Build APK
         run: flet build apk --verbose
+      
+      - name: Build window executable
+        run: flet build exe --verbose
+
+      - name: Build macOS executable
+        run: flet build pkg --verbose
+
+      - name: Build Linux executable
+        run: flet build deb --verbose
 
       - name: Upload APK to Release
         uses: softprops/action-gh-release@v1
@@ -50,6 +64,10 @@ jobs:
           files: |
             build/apk/app-release.apk
             build/apk/app-release.apk.sha1
+            build/exe/app.exe
+            build/pkg/app.pkg
+            build/deb/app.deb
           tag_name: ${{ github.ref_name || env.TAG_NAME }}
+          name: ${{ env.RELEASE_TITLE }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
