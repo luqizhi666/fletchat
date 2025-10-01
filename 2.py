@@ -1,7 +1,7 @@
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="ms-f10303bd-329f-40ae-9b12-ed5b233b3d82", # 请替换成您的ModelScope Access Token
+    api_key="ms-8d102679-4795-443b-92b3-707cdc54b579", # 请替换成您的ModelScope Access Token
     base_url="https://api-inference.modelscope.cn/v1/"
 )
 
